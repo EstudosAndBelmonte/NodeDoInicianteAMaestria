@@ -64,6 +64,6 @@ Para utilizar estes modulos no projeto precisamos importar.
 O Node permite o envio de argumentos via linha de comando que nos passamos eles após a instrução de execução do arquivo.
 Os argumentos ficam em um array chamado: process.argv, onde podemos fazer um loop e resgatar os valores enviados.
 
-### Módulos externos
+### MÓDULOS EXTERNOS
 Os módulos externos podem ser instalados via NPM que é o comando inicial para se criar um projeto com o Node.js.
 Para isso precisamos inicializar o npm no projeto, com " npm init ", a partir daí os módulos ficam mapeados e podemos instalar módulos que são salvos na pasta node_modules com o comando " npm install <nome> ".
