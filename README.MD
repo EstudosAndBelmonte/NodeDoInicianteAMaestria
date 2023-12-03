@@ -2,12 +2,13 @@
 
 Node é uma biblioteca que nos possibilita criar softwares em Js no lado do servidor, onde temos um código JS rodando em C++ para garantir **alta performance**.
 
+## Introdução
 ### NPM
-Um gerenciamento de pacotes do Node, que podemos utilizar bibliotecas de terceiros, baixando elas pelo npm. Os modulos externos ficam numa pasta chamada node_modules, que devemos descartar, ou sejam, a cada instalação do projeto baixamos todos os pacotes novamente.
+Um gerenciamento de pacotes do Node, que podemos utilizar bibliotecas de terceiros, baixando elas pelo npm. Os módulos externos ficam numa pasta chamada node_modules, que devemos descartar, ou sejam, a cada instalação do projeto baixamos todos os pacotes novamente.
 Ele pode executar determinados scripts JS que criamos. 
 São raros um software em Node.js não utiliza o NPM.
 
-## REPL
+### REPL
 É um ambiente de teste do Node que podemos realizar alguns testes e análise de sistemas.
 O módulo fornece uma implementação Read-Eval-Print-Loop (REPL) que está disponível como um programa autônomo ou incluso em outros aplicativos. Ele pode ser acessado usando:node:repl
 
@@ -26,7 +27,7 @@ Os seguintes comandos especiais são suportados por todas as instâncias REPL:
 .help: Mostrar esta lista de comandos especiais.
 .save: Salve a sessão REPL atual em um arquivo: > .save ./file/to/save.js
 .load: Carregue um arquivo na sessão REPL atual. > .load ./file/to/load.js
-.editor: Entre no modo de editor (+ para terminar, + cancelar).CtrlDCtrlC
+.editor: Entre no modo de editor (+ para terminar, + cancelar).Ctrl+D Ctrl+C
 > .editor
 // Entering editor mode (^D to finish, ^C to cancel)
 function welcome(name) {
@@ -45,6 +46,7 @@ Ctrl+D: Tem o mesmo efeito que o comando..exit
 Tab: Quando pressionado em uma linha em branco, exibe global e local variáveis (escopo). Quando pressionado ao inserir outra entrada, exibe opções de preenchimento automático.
 Para ligações de chave relacionadas à pesquisa reversa i, consulte pesquisa reversa i. Para todas as outras ligações de chave, consulte Ligações de chave TTY.
 
+## Fundamentos
 ### MODULOS
 Módulos são scripts reaproveitáveis, que utilizamos bastante programando em Node.
 Eles são divididos em três módulos:
@@ -57,13 +59,56 @@ O Node.js pode utilizar o export e import do ES6, mas são funcionalidades mais 
 Para poder realizar isso precisamos modificar os nossos arquivos para a extensão **.mjs**, onde então podemos exportar uma com export e importar com import, uma unica função, caso seja necessário.
 
 ### CORE MODULES
-No Node temos diversos Core Modules, que são os que vêm pontos para serem utilizados. Nele podemos resolver diversos problemas como: trabalhar com arquivos e diretorios, servir aplicações e etc.
-Para utilizar estes modulos no projeto precisamos importar.
+No Node temos diversos Core Modules, que são os que vêm pontos para serem utilizados. Nele podemos resolver diversos problemas como: trabalhar com arquivos e diretórios, servir aplicações e etc.
+Para utilizar estes módulos no projeto precisamos importar.
 
 ### LER ARGUMENTOS
-O Node permite o envio de argumentos via linha de comando que nos passamos eles após a instrução de execução do arquivo.
+O Node permite o envio de argumentos via linha de comando que nós os passamos após a instrução de execução do arquivo.
 Os argumentos ficam em um array chamado: process.argv, onde podemos fazer um loop e resgatar os valores enviados.
 
 ### MÓDULOS EXTERNOS
 Os módulos externos podem ser instalados via NPM que é o comando inicial para se criar um projeto com o Node.js.
 Para isso precisamos inicializar o npm no projeto, com " npm init ", a partir daí os módulos ficam mapeados e podemos instalar módulos que são salvos na pasta node_modules com o comando " npm install <nome> ".
+
+### Explorando o console
+Temos uma grande variedade de métodos no console, como o console.log que podemos imprimir mais de uma variável por vez.
+Nele podemos inserir variável entre strings.
+Há um método para limpar as mensagens de console.
+Nele temos um outro modulo que se chama chalks, onde podemos deixar o console de uma forma mais agradável, realizando um feedback com uma base de cores.
+Para usar o Chalk devemos instalar ele em nosso projeto com o comando: `npm install chalk`
+
+### Lendo entrada de dados
+Podemos ler dados do usuario com o modulo readline, um Core Module.
+Neste caso utilizamos o método question, que faz uma pergunta a ser respondida pelo usuario que depois podemos processar a reposta e entregar um retorno.
+
+### Event Loop
+É um recurso da arquitetura node, nele é executado uma linha por vez, de cima pra baixo do código escrito. Isso para nós ajuda a evitar problemas de concorrência, garantindo a execução do código.
+O único cuidado que devemos tomar é com loop infinito.
+
+### Event Emitter
+Ele se comporta como eventos de navegadores, podemos ativar um código em alguns pontos da aplicação, como o início.
+É um Core Module chamado `events`, onde precisamos instanciar a classe `EventEmitter` que vem deste módulo e aí então utilizar os métodos para atingir nosso objetivo.
+
+
+### Síncrono e assíncrono
+No Node.js temos duas opções ao executar métodos:
+**Forma síncrona:** é um metodo que espera ser totalmente executado para proceguir;
+**Forma assíncrona:** é um metodo que o código continua e um ponto futuro obtém a resposta esperada, ou seja se tem uma função na linha dois não irá impedir na linha três.
+Elas são conhecidas como Sync ( metodo síncrona ) e Async ( metodo assíncrona ).
+
+### Erros no Node
+Temos duas formas principais para gerar ou evidenciar erros.
+***Throw***: uma forma de encerrar um programa, gerando um novo erro.
+***try catch***: uma forma de evidenciar algo que deu errado em um bloco de código e exibir a mensagem de erro.
+
+## Core Modules
+Eles são fundamentais para criação de softwares em Node, e são eles:
+*HTTP:* módulo para criar servidores HTTP.
+*Path:* Extrair informações de path ( caminhos ) de arquivos.
+*fs:* file system, leitura e escrita de arquivos;
+*url:* módulo para trabalhar com URL's
+
+### HTTP
+Podemos criar um servidor HTTP com este módulo, ou seja, receber uma requisição e enviar código HTML como resposta.
+`creteServer`: utilizamos para criação do servidor.
+`liste`: utilizado para determinar as portas.
