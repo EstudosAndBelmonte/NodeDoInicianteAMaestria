@@ -110,5 +110,29 @@ Eles são fundamentais para criação de softwares em Node, e são eles:
 
 ### HTTP
 Podemos criar um servidor HTTP com este módulo, ou seja, receber uma requisição e enviar código HTML como resposta.
-`creteServer`: utilizamos para criação do servidor.
+`createServer`: utilizamos para criação do servidor.
 `liste`: utilizado para determinar as portas.
+
+#### Parando o serviço
+Há alguns serviços do Node que ocupam a aba do terminal para continuar rodando e um deles é o modulo HTTP.
+Para parar o serviço basta utilizar: ctrl + C. 
+Isso é util quando há um problema no codigo também.
+
+#### Retornando o HTML com o HTTP
+Para retornar um HTML precisamos implementar mais recursos.
+Podemos adicionar um status code no retorno, com a propriedade statusCode.
+Temos que mudar os headers para text/html e retornar o HTML pelo método end do http.
+
+#### Atualizações de projeto
+Para emitir atualizações do projeto precisamos sempre reiniciar o servidor, ou seja: salvar, encerrar e reiniciar, este é o processo.
+Para atualizar o projeto de uma forma tradicional tem que encerrar o projeto e rodar novamente.
+
+#### URL
+O módulo url serve para decompor uma URL que passamos para o método parse.
+Nele resgatamos: host, path, search, query e etc.
+
+#### Unindo o URL e HTTP
+Podemos trabalhar com estes módulos juntos e ter um resultado interessante, com o http criamos nosso server e alteramos a resposta baseado na URL acessando e com a URL processamos os parametros que vem pela query string, para alterar a lógica do http.
+
+#### Modulo fs na URL
+O modulo fs serve para trabalhar com arquivos e diretorios e nele podemos inserir HTML, uma otima maneira é para logs do sistema.
