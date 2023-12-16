@@ -136,3 +136,47 @@ Podemos trabalhar com estes módulos juntos e ter um resultado interessante, com
 
 #### Modulo fs na URL
 O modulo fs serve para trabalhar com arquivos e diretorios e nele podemos inserir HTML, uma otima maneira é para logs do sistema.
+
+##### Atualizando o arquivo
+O writeFile substitui tudo que está em um arquivo, e para atualizar precisamos utilizar o appendFile que adiciona algo novo ao nosso arquivo.
+
+##### Removendo o arquivo
+Para remover o arquivo com o fs utilizamos o metodo ***UNLINK*** e para remover os arquivos precisamos passar o arquivo como parametro. 
+Nele podemos checar se houve algum erro, a partir da callback retornada. 
+
+##### Detalhes dos arquivos
+Com FS podemos puxar alguns detalhes de nosso arquivos, como tamanho, data de criação, se é arquivo ou diretorio. Para realizar essa ação utilizamos a função **STATS**.
+
+##### Renomear um arquivo
+Para renomear um arquivo com o fs utilizamos o metodo ***RENAME*** para realizar essa modificação precisamos colocar o arquivo como parametro e tambem o novo nome.
+Nesse metodo tambem podemos verificar algum eventual erro, pela callbackm, que pode ser ativado quando o arquivo alvo não existe.
+
+#### Rotas com Node.js puro
+Podemos criar um sistema de roteamento simples com Node.js e seus core modules, as rotas são basicamente as paginas que acessamos nos sites.
+A ideia é identificar os arquivos acessados pela URL e retorná-los, se existirem.
+
+
+
+### PATH
+O path é um core module, que conseguimos extrair diversas informações sobre caminho e arquivos, algumas infos possíveis são: nome do diretorio, nome do arquivo, extensão do arquivo e etc.
+
+#### Path absoluto e formar path
+Com a função **resolve** é possivel saber qual o path completo ate o arquivo alvo, com ele se descobre o endereço completo.
+Com a função ***join*** é possivel formar um path dinamico, com variaveis e valores fixos, com ele criamos um caminho.
+
+#### Trabalhando com diretorios
+Com o modulo fs também podemos trabalhar com diretorios (pastas);
+O metodo **exists** pode evidenciar se um diretorio existe ou não;
+E o metodo **mkdir** pode criar um diretorio;
+
+### Módulo OS
+Com o core module OS podemos extrair informações do sistema operacional.
+
+## NPM
+É o principal gerenciamento de pacotes do Node.js e significa **Node Package Manager**.
+Nele podemos não só instalar pacotes, mas também configurar o projeto e rodar scripts por meio do NPM.
+Todas as vezes que se cria um projeto gera sempre um arquivo, o *package.json*.
+
+### Criando um projeto
+Para criar um projeto começamos com o comando ***npm init***.
+Nele somos questionados para configurar algumas opções iniciais, como o nome do projeto, nome do autor e qual a versão, e após tudo isso é criado o *package.json*.
