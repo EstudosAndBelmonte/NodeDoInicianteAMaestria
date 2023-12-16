@@ -180,3 +180,29 @@ Todas as vezes que se cria um projeto gera sempre um arquivo, o *package.json*.
 ### Criando um projeto
 Para criar um projeto começamos com o comando ***npm init***.
 Nele somos questionados para configurar algumas opções iniciais, como o nome do projeto, nome do autor e qual a versão, e após tudo isso é criado o *package.json*.
+Podemos criar nosso projeto de uma forma mais rapida, para realizar isso basta `npm init -y`, dessa forma o relatorio irá ser criado em questão de segundos.
+#### Instalações dos pacotes
+Para instalar um pacote vamos utilizar o comando `npm install <nome>`, onde o <nome> será substituido pelo nome do pacote, quando fazemos desta maneira um node module é criada e nela todos arquivos de modulos de terceiro são armazenados.
+Sempre que rodamos o comando npm install, a pasta node_modules é recriada com todos os modulos da package.json.
+#### Onde descobrir os modulos.
+Todos os modulos ficam no site do NPM.
+`https://www.npmjs.com/`
+#### Como utilizar um pacote como dev
+Há uma possibilidade de instalar pacotes apenas para o ambiente de desenvolvimento.
+Basta colocar o codigo `--save-dev` no final do codigo, isso vai fazer com que ele seja intalado no package.json dos demais.
+Um exemplo: servidor para ambiente local, como o Nodemon.
+#### Atualização de pacotes
+Constantemente os pacotes do npm são atualizados por seus desenvolvedores, para atualizar todos os pacotes de uma unica vez podmeos utilizar o comando `npm update`, e vai trazer todas as atualizações e implantar no 'package.json'.
+Mas se quiser atualizar um especifico utilizamos `npm update <nome>`
+Muitas vezes com o simples comando do `npm update` pode acontecer de não atualizar, então devemos utilizar o comando `npx npm-check-updates -u`.
+#### Criando um script
+É possivel criar rotinas com o npm também, ou seja, executamos uma série de comandos com apenas um `npm run <script>` onde script é o nome da sequência de comando que criamos.
+Quando criado um script e adicionado ao package, somente o comando run não é preciso colocar run na frente do NPM, os demais é preciso.
+#### Instalando pacote global
+Um pacote global não fica salvo na pasta node_modules do projeto, fica no computador do usuário. Porem ele tem uma vantagem que podemos utilizar em qualquer local pelo terminal.
+Para determinar que é uma variavel local utilizamos uma flag -g em node install.
+#### NPX
+Alguns pacotes são scripts executaveis, que resultam em alguma ação no nosso computador, como por exemplo a instalação do react, que é feita pelo npx, desta maneira uma serie de processos são simplificados por este executor.
+#### Remover pacote com NPM
+Para removerk um pacote utilizamos o comando: `npm unistall <nome>`
+Isso faz com que o pacote seja removido do package.json.
