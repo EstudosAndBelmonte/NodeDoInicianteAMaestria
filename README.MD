@@ -259,3 +259,11 @@ Isso faz com que o pacote seja removido do package.json.
 
 É um framework Web onde podemos criar aplicações em Node, e diversos outros recursos como banco de dados relacionais e não relacionais, MVC e diversos outros. Com o express podemos tornar a criação de aplicativos muito mais simplificada, do que com o Core Module.
 Nele podemos criar rotas, renderizar HTML, conectar a um banco de dados.
+
+- primeiro criamos um init
+- depois basta instalar o Express com o comando `npm install express`
+
+### Rotas
+
+Rota é um conceito super importante e presente em aplicações web. Basicamente são URL's que acesssamos.
+Rotas são uma ponte entre o usuario e a logica da aplicação.
