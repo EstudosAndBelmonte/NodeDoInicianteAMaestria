@@ -7,7 +7,7 @@ const path = require('path')
 const basePath = path.join(__dirname, 'templates')
 
 app.get('/', (req, res) => {
-    res.send('Olá mundo !!')
+    res.sendFile($())
 })
 
 app.listen(port, () => {

@@ -267,3 +267,8 @@ Nele podemos criar rotas, renderizar HTML, conectar a um banco de dados.
 
 Rota é um conceito super importante e presente em aplicações web. Basicamente são URL's que acesssamos.
 Rotas são uma ponte entre o usuario e a logica da aplicação.
+
+### HTML com Express
+
+Para enviar HTML como resposta utilizamos o método `senfile`, isso faz com que o arquivo seja renderizado no navegador e precisamos acessar o arquivo por meio do direito base, isso requer o modulo path.
+
