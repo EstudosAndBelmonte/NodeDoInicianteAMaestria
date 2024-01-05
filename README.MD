@@ -31,18 +31,20 @@ Os seguintes comandos especiais são suportados por todas as instâncias REPL:
 .save: Salve a sessão REPL atual em um arquivo: > .save ./file/to/save.js
 .load: Carregue um arquivo na sessão REPL atual. > .load ./file/to/load.js
 .editor: Entre no modo de editor (+ para terminar, + cancelar).Ctrl+D Ctrl+C
+
 > .editor
-// Entering editor mode (^D to finish, ^C to cancel)
-function welcome(name) {
-  return `Hello ${name}!`;
-}
+> // Entering editor mode (^D to finish, ^C to cancel)
+> function welcome(name) {
+> return `Hello ${name}!`;
+> }
 
 welcome('Node.js User');
 
 // ^D
 'Hello Node.js User!'
+
 > COPY
-As seguintes combinações de teclas no REPL têm estes efeitos especiais:
+> As seguintes combinações de teclas no REPL têm estes efeitos especiais:
 
 Ctrl+C: Quando pressionado uma vez, tem o mesmo efeito que o comando. Quando pressionado duas vezes em uma linha em branco, tem o mesmo efeito que o comando..break.exit
 Ctrl+D: Tem o mesmo efeito que o comando..exit
@@ -113,16 +115,16 @@ Elas são conhecidas como Sync ( metodo síncrona ) e Async ( metodo assíncrona
 ### Erros no Node
 
 Temos duas formas principais para gerar ou evidenciar erros.
-***Throw***: uma forma de encerrar um programa, gerando um novo erro.
-***try catch***: uma forma de evidenciar algo que deu errado em um bloco de código e exibir a mensagem de erro.
+**_Throw_**: uma forma de encerrar um programa, gerando um novo erro.
+**_try catch_**: uma forma de evidenciar algo que deu errado em um bloco de código e exibir a mensagem de erro.
 
 ## Core Modules
 
 Eles são fundamentais para criação de softwares em Node, e são eles:
-*HTTP:* módulo para criar servidores HTTP.
-*Path:* Extrair informações de path ( caminhos ) de arquivos.
-*fs:* file system, leitura e escrita de arquivos;
-*url:* módulo para trabalhar com URL's
+_HTTP:_ módulo para criar servidores HTTP.
+_Path:_ Extrair informações de path ( caminhos ) de arquivos.
+_fs:_ file system, leitura e escrita de arquivos;
+_url:_ módulo para trabalhar com URL's
 
 ### HTTP
 
@@ -166,7 +168,7 @@ O writeFile substitui tudo que está em um arquivo, e para atualizar precisamos 
 
 ##### Removendo o arquivo
 
-Para remover o arquivo com o fs utilizamos o metodo ***UNLINK*** e para remover os arquivos precisamos passar o arquivo como parametro.
+Para remover o arquivo com o fs utilizamos o metodo **_UNLINK_** e para remover os arquivos precisamos passar o arquivo como parametro.
 Nele podemos checar se houve algum erro, a partir da callback retornada.
 
 ##### Detalhes dos arquivos
@@ -175,7 +177,7 @@ Com FS podemos puxar alguns detalhes de nosso arquivos, como tamanho, data de cr
 
 ##### Renomear um arquivo
 
-Para renomear um arquivo com o fs utilizamos o metodo ***RENAME*** para realizar essa modificação precisamos colocar o arquivo como parametro e tambem o novo nome.
+Para renomear um arquivo com o fs utilizamos o metodo **_RENAME_** para realizar essa modificação precisamos colocar o arquivo como parametro e tambem o novo nome.
 Nesse metodo tambem podemos verificar algum eventual erro, pela callbackm, que pode ser ativado quando o arquivo alvo não existe.
 
 #### Rotas com Node.js puro
@@ -190,7 +192,7 @@ O path é um core module, que conseguimos extrair diversas informações sobre c
 #### Path absoluto e formar path
 
 Com a função **resolve** é possivel saber qual o path completo ate o arquivo alvo, com ele se descobre o endereço completo.
-Com a função ***join*** é possivel formar um path dinamico, com variaveis e valores fixos, com ele criamos um caminho.
+Com a função **_join_** é possivel formar um path dinamico, com variaveis e valores fixos, com ele criamos um caminho.
 
 #### Trabalhando com diretorios
 
@@ -206,12 +208,12 @@ Com o core module OS podemos extrair informações do sistema operacional.
 
 É o principal gerenciamento de pacotes do Node.js e significa **Node Package Manager**.
 Nele podemos não só instalar pacotes, mas também configurar o projeto e rodar scripts por meio do NPM.
-Todas as vezes que se cria um projeto gera sempre um arquivo, o *package.json*.
+Todas as vezes que se cria um projeto gera sempre um arquivo, o _package.json_.
 
 ### Criando um projeto
 
-Para criar um projeto começamos com o comando ***npm init***.
-Nele somos questionados para configurar algumas opções iniciais, como o nome do projeto, nome do autor e qual a versão, e após tudo isso é criado o *package.json*.
+Para criar um projeto começamos com o comando **_npm init_**.
+Nele somos questionados para configurar algumas opções iniciais, como o nome do projeto, nome do autor e qual a versão, e após tudo isso é criado o _package.json_.
 Podemos criar nosso projeto de uma forma mais rapida, para realizar isso basta `npm init -y`, dessa forma o relatorio irá ser criado em questão de segundos.
 
 #### Instalações dos pacotes
@@ -272,3 +274,36 @@ Rotas são uma ponte entre o usuario e a logica da aplicação.
 
 Para enviar HTML como resposta utilizamos o método `senfile`, isso faz com que o arquivo seja renderizado no navegador e precisamos acessar o arquivo por meio do direito base, isso requer o modulo path.
 
+### Problema de atualização
+
+Precisamos toda vez reiniciar o servidor para receber as atualizações isso é muito custoso, para acabar com isso vamos instalar o `nodemon`, que todas as vez que salvamos nosso projeto ele reinicia o servidor.
+
+### Middlewares
+
+Middlewares, são codigos que podem ser executados no meio/entre de alguma ação e outra. Para utilizar o metodo nos dá acesso a utilizar middlwares é o use no Express.
+Por exemplo: Verificar se usuário está logado, podemos ter um para esta verificação.
+Essa função pode mandar para qualquer pagina mas tem que estar logado para proceguir.
+
+### Parâmetros por URL
+
+Podemos resgatar os parametros da URL por meio do REQ, basta acessar req.params.<nome>, onde o nome deve ser o que está definido na URL do express que fica dessa forma: /users/:id, que nesse caso estariamos buscando o usuario no banco de dados pelo ID.
+
+### Enviar dados
+
+#### POST
+
+Para enviar os dados vamos precisar criar um form e mandar os dados via POST para alguma URL, no expess precisamos colocar alguns middlewares como o express.json para ler os dados do body e também uma roda que vai receber estes dados, utilizando o metodo post do express.
+
+#### Módulo de rotas
+
+Podemos unir varias rotas em um modulo, isso vai deixar nosso codigo mais organizado.
+Normalmente criamos uma pasta ou arquivo que contém estas rotas que representa uma entidade em comum, como users.
+Vamos utilizar um novo objeto chamado router e nele colocar as rotas, depois exportámos e importanmos no arquivo principal.
+
+#### Colocando CSS
+
+Para inserir CSS nas paginas e arquivos estáticos vamos precisar de um middleware, que é o express.static. Colocamos um diretorio base, que normalmente é o public e criar os estaticos a partir desta pasta.
+
+#### Criando uma página 404
+
+Para criar uma pagina 404, ou seja, quando o usuario acessar uma pagina que não existe, basta criar um novo middleware abaixo de todas as rotas, que responde com este status e enviar um arquivo de templates referente a esta pagina.
