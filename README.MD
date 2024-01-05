@@ -307,3 +307,27 @@ Para inserir CSS nas paginas e arquivos estáticos vamos precisar de um middlewa
 #### Criando uma página 404
 
 Para criar uma pagina 404, ou seja, quando o usuario acessar uma pagina que não existe, basta criar um novo middleware abaixo de todas as rotas, que responde com este status e enviar um arquivo de templates referente a esta pagina.
+
+## Template Engine
+
+Uma forma de deixar HTML dinamico, inserindo variaveis do back-end no front-end, nele podemos também criar layouts, que são reaproveitados. É essencial para projetos que usam banco de dados, que não são estaticos.
+Temos diversos disponiveis: EJS, Pug e Handlebars, por exemplo;
+Todos atingem o mesmo objetivo, porem há algumas diferenças de setup e funcionalidade.
+No curso iremos utilizar o Handlebars.
+
+### Conhecendo o Handlebars
+
+O handlebars é uma das templates engines mais utilizadas, colocamos os dados dinamicos no HTML entre {{}} para serem impressos.
+Podemos criar condicionais e também loops no template conhecido pela sua sintaxe limpa no front, nos força a não executar logica de HTML.
+O nome do pacote é express-handlebars.
+Houve uma pequena alteração no Handlebars, que vai quebrar o código das aulas seguintes
+Para reparar basta trocar esta linha de código:
+"app.engine('handlebars', exphbs())"
+Por esta:
+"app.engine('handlebars', exphbs.engine())"
+Basicamente, precisamos invocar este método engine, que antes era opicional para realizar algumas configurações extras, agora ele é obrigatório para o funcionamento do pacote
+
+#### Instalando o Handlebars
+Para ele funcionar vamos precisar instalar o Express e o Handlebars, para o correto funcionamento, nele podemos tambem utilizar o Nodemon, para nos ajudar.
+No index precisamos importar os pacotes instalados e também adicionar ao Express a engine do Handlebars.
+Criaremos uma view no diretorio views, com a extensão handlebars. Utilizamos o metodo render para enviar esta view para a requisição.
