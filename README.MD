@@ -315,7 +315,9 @@ Temos diversos disponiveis: EJS, Pug e Handlebars, por exemplo;
 Todos atingem o mesmo objetivo, porem há algumas diferenças de setup e funcionalidade.
 No curso iremos utilizar o Handlebars.
 
-### Conhecendo o Handlebars
+### Handlebars
+
+#### Conhecendo o Handlebars
 
 O handlebars é uma das templates engines mais utilizadas, colocamos os dados dinamicos no HTML entre {{}} para serem impressos.
 Podemos criar condicionais e também loops no template conhecido pela sua sintaxe limpa no front, nos força a não executar logica de HTML.
@@ -328,6 +330,37 @@ Por esta:
 Basicamente, precisamos invocar este método engine, que antes era opicional para realizar algumas configurações extras, agora ele é obrigatório para o funcionamento do pacote
 
 #### Instalando o Handlebars
+
 Para ele funcionar vamos precisar instalar o Express e o Handlebars, para o correto funcionamento, nele podemos tambem utilizar o Nodemon, para nos ajudar.
 No index precisamos importar os pacotes instalados e também adicionar ao Express a engine do Handlebars.
 Criaremos uma view no diretorio views, com a extensão handlebars. Utilizamos o metodo render para enviar esta view para a requisição.
+
+#### Para passar para a View
+
+Passamos os dados por meio do metodo render, nele enviamos um objeto com chaves e valores e com isso conseguimos acessar estes dados no template.
+Utilizamos a sintaxe de {{dado}}.
+
+#### Utilizando condicionais
+
+Utilizar uma estrutura condicional nos permite mais flexibilidade no layout. Para isso utilizamos o if no Handlebars.
+A sintaxe é {{#if algumaCoisa}}..{{/if}} e com isso só será impresso oq esta dentro da condição, se for verdadeiro.
+Precisamos encaminhar o dado a ser validado pelo backend.
+O else é um complemento do if que utilizamos no handlebars para a exibição de outra parte do layout, caso a condição seja falsa.
+A sintaxe é:{{#if algumaCoisa}}..{{else}}..{{/if}}
+
+#### Estrutura de repetição
+
+As estrutura de repetição no Handlebars são feitas pelo operador each. A sintaxe é {{#each}}..{{/each}}
+Para chamar a sintaxe utilizamos : {{this}} e então cada um dos itens é acessado na view.
+Como o handlebars prega um template mais limpo, devemos mandar apenas o necessario para o front-end.
+
+#### Utilizando o with
+
+O with nos permite abstrair um objeto, ou seja, podemos acessar as propriedades sem nos referenciarmos sempre ao objeto antes;
+A sintaxe é: {{#with objeto}}...{{/with}}
+
+#### Partials
+
+Os partials são como mini templates, que precisam ser repetidos em diversos locais da nossa aplicação. Precisamos realizar algumas modificações na implementação do handlebars.
+Os partials geralmente ficam em views/partials.
+Utilizamos a sintaxe: {{>partial}} para chama-lo no projeto.
