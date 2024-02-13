@@ -417,3 +417,48 @@ O driver Mysql tem este recurso desenvolvido, podemos aplicá-lo e esse recurso 
 
 Uma forma de nos defendermos de SQL Injection, onde podemos utilizar interrogações em vez dos valores, onde essa tecnica deve ser utilizada em qualquer programa que vá para a produção.
 Devemos substituir através de um segundo passo, para a query ser executada corretamente.
+
+### Sequilize
+
+É uma ORM para Node.js ela é baseada em promises(then, catch).
+Tem integração para varios banco relacionais, como o Mysql.
+Para utilizar ele é preciso sempre criar um Model, que é reflexo da nossa tabela em uma classe.
+Para isso instalamos o pacote, já que é um modulo externo. Com isso para instalar o Sequelize utilizamos o pacote sequelize.
+E para conectar precisamos passar os mesmos dados que no outro pacote: banco, usuario e senha.
+É possivel checar a conexão com o metodo authenticate.
+
+#### ORM
+
+Object Relational Mapper (ORM) é um ORM, abstrai a complexidade das queries, para trabalharmos com metodos temos qua abstrai a complexidade das queries, para trabalharmos com metodos.
+Nos concentramos na regra de negocios e não nos comandos SQL.
+Uma ORM muito utilizada para Node.js é a sequelize. Em alguns casos uma ORM pode trazer prejuizos de performance, a query pura executa mais rapidamente do que a ORM e temos codigos "gerado", ou seja, não vemos por baixo dos panos.
+
+#### Criando uma model
+
+Para criar um _Model_ temos que instanciar uma classe que representará uma tabela.
+Um model user cria uma nova tabela chamada users, colocamos os campos e os tipos dele como propriedade do Model.
+Futuramente ele será utilizado para as operações entre aplicação e banco. O método sync faz a criaçao das tabelas baseada nos models.
+
+#### Inserindo os dados
+
+Para inserir os dados vamos precisar do Model que criamos, ou seja, importar ele no arquivo de execução do comando.
+O metodo a ser utilizado é o create, ele leva como parametro todos os campos, e insere o registro na tabela.
+
+#### Lendo dados
+
+Para ler os dados de uma tabela vamos utilizar o metodo fetchAll, onde os dados vem em um objeto especial, para transformar em um array de objeto temos que inserir um parametro que é o raw como true.
+
+#### Utilizando o WHERE
+
+Para filtrar dados com o Sequelize utilizando o WHERE, precisamos inserir um novo parametro, que será o where, um objeto onde colocamos a propriedade e valores que queremos filtrar.
+E para retornar apenas um resultado podemos utilizar o metodo FindOde;
+
+#### Removendo itens
+
+Para remover itens utilizando o metodo destroy, a função vai ficar bem parecida com a de resgatar um usuario.
+So que será um POST, e que efetua a remoção, depois redirecionamos, precisamos também criar um formulario no front-end.
+
+#### Edição de itens
+
+O primeiro passo da edição é resgatar os dados do item;
+Com isso podemos preencher o formulario, para depois fazer o UPDATE. Vamos utilizar o método findOne, igual na rota de visualização e fazer o preenchimento do form na nossa nova view.
