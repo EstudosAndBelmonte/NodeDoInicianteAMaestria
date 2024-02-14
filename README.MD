@@ -462,3 +462,15 @@ So que será um POST, e que efetua a remoção, depois redirecionamos, precisamo
 
 O primeiro passo da edição é resgatar os dados do item;
 Com isso podemos preencher o formulario, para depois fazer o UPDATE. Vamos utilizar o método findOne, igual na rota de visualização e fazer o preenchimento do form na nossa nova view.
+
+#### Refazer as tabelas
+
+Podemos forçar a reconstrução das tabelas, no metod sync, onde são sincronizados os models e as tabelas.
+Vamos colocar um atributo: Force como true
+`sync({force:true})`
+
+#### Relacionamento
+
+Em bancos relacionais podemos criar relacionamentos entre tabelas, para concretizar isso no sequelize vamos precisar de dois models, ou seja, precisamos criar mais um no nosso projeto.
+Depois precisamos inserir um método de relacionameto em algum dos models que vai criar a relação.
+Após o sync uma coluna que faz a relação entre as tabelas será criada que será chamada de 'FOREIGN KEY'.
